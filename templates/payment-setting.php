@@ -19,7 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$active_gateways = array();
 
 	foreach($available_gateways as $gateway){
-    $active_gateways[] = $gateway;
+    if ( isset( $gateway->enabled ) && 'yes' === $gateway->enabled ) {
+      $active_gateways[] = $gateway;
+    }
 	}
 
 	?>
